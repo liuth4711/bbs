@@ -9,6 +9,13 @@
     5、实现了异常/常用数据库/控制器 代码复用
     6、使用了DTO层封装数据，保证数据形式的一致
 
+## 运行环境
+- JDK 8
+- Maven
+- MySQL
+- Redis
+
+
 ## 系统结构图
 	1、quark-common :采用了Springdata+MySql实现基础服务抽象,DAO层，Entity以及DTO
 	2、quark-admin：采用springboot+shiro搭建的细粒度的基于URL的权限管理系统，进行帖子管理，回复管理，用户管理等操作
@@ -19,12 +26,6 @@
 	6、使用Redis进行了热点缓存，Ehcache进行数据库的二级缓存提高应用的效率
  ![image](https://raw.githubusercontent.com/jiujiujiujiujiuaia/bbs/master/resource/images/systemv2.png)  <br>
 	
-
-## 运行环境
-- JDK 8
-- Maven
-- MySQL
-- Redis
 
 ## 主要技术
 - Springboot
@@ -65,7 +66,6 @@
 ## 效果图
 ![image](https://raw.githubusercontent.com/jiujiujiujiujiuaia/bbs/master/resource/images/quark_portal_1.JPG)  <br>
 ![image](https://raw.githubusercontent.com/jiujiujiujiujiuaia/bbs/master/resource/images/quark_portal_4.JPG)  <br>
-![image](https://raw.githubusercontent.com/jiujiujiujiujiuaia/bbs/master/resource/images/quark_portal_5.JPG)  <br>
 ![image](https://raw.githubusercontent.com/jiujiujiujiujiuaia/bbs/master/resource/images/quark_admin_1.JPG)  <br>
 ![image](https://raw.githubusercontent.com/jiujiujiujiujiuaia/bbs/master/resource/images/quark_chat.JPG)  <br>
 
