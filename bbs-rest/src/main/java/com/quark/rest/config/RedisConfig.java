@@ -21,7 +21,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.lang.reflect.Method;
 
 /**
- * @Author LHR
+ * @Author ycw
  * Create By 2017/8/21
  */
 @Configuration

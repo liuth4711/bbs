@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Author LHR
+ * @Author ycw
  * Create By 2017/8/27
  *
  * 登录拦截

@@ -66,7 +66,7 @@
 	导入resource文件夹下的sql文件
 	Redis服务器：默认端口
 	Nginx部署图片服务器到目录：root   D:\home;
-	后台管理员：账号：lhr 密码：root
+	后台管理员：账号：ycw 密码：root
 
 ## 效果图
 ![image](https://raw.githubusercontent.com/jiujiujiujiujiuaia/bbs/master/resource/images/quark_portal_1.JPG)  <br>

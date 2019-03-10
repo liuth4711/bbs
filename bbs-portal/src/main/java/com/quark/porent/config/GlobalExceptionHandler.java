@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @Author LHR
+ * @Author ycw
  * Create By 2017/9/8
  */
 @ControllerAdvice

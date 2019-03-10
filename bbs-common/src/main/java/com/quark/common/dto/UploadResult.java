@@ -3,7 +3,7 @@ package com.quark.common.dto;
 import java.io.Serializable;
 
 /**
- * @Author LHR
+ * @Author ycw
  * Create By 2017/8/26
  */
 public class UploadResult implements Serializable{

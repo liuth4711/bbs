@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by lhr on 17-7-31.
+ *  17-7-31.
  */
 @SpringBootApplication
 @EnableCaching//缓存支持

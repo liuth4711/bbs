@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by lhr on 17-8-1.
+ *  17-8-1.
  */
 public class MyShiroRealm extends AuthorizingRealm {
 
