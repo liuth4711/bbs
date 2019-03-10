@@ -25,17 +25,12 @@
 - JDK 8
 - Maven
 - MySQL
-- Nginx
 - Redis
 
 ## 主要技术
 - Springboot
-- springData
 - Netty
-- hibernate-jpa
-- shiro
 - thymeleaf
-- Ehcache
 - swagger2
 - Bootstrap
 - LayUI
