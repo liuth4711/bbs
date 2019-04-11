@@ -99,4 +99,9 @@ public class PageController {
     public String LabelsPage(){
         return "label/labels";
     }
+
+    @RequestMapping("/media")
+    public String media(){
+        return "media/media";
+    }
 }

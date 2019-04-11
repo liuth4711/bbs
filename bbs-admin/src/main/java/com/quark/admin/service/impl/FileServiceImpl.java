@@ -20,7 +20,7 @@ public class FileServiceImpl extends BaseServiceImpl<FileDao, File> implements F
     @Override
     public Boolean isMd5Exist(String md5) {
 
-        List<File> fileList=repository.findByMD5(md5);
+        List<File> fileList=repository.findByMd5(md5);
 
         return  ! fileList.isEmpty();
     }

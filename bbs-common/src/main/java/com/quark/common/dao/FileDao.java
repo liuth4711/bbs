@@ -10,7 +10,7 @@ import java.util.List;
 public interface FileDao extends JpaRepository<File,Integer> {
 
 
-    List<File> findByMD5(String md5);
+    List<File> findByMd5(String md5);
 
 
 }

@@ -50,22 +50,13 @@ public class MediaController {
      */
     @ResponseBody
     @RequestMapping(value = "/BigFileUp")
-    public String fileUpload(String guid,
-                             String md5value,
-                             String chunks,
-                             String chunk,
-                             String id,
-                             String name,
-                             String type,
-                             String lastModifiedDate,
-                             int size,
-                             MultipartFile file) {
+    public String fileUpload(String guid, String md5value,String chunks, String chunk,String id, String name, String type, String lastModifiedDate, int size, MultipartFile file) {
         String fileName;
         try {
             int index;
             String uploadFolderPath = SaveFile.getRealPath();
 
-            String mergePath =uploadFolderPath + guid + "/";
+            String mergePath = uploadFolderPath + guid + "/";
             String ext = name.substring(name.lastIndexOf("."));
 
             //判断文件是否分块
@@ -89,7 +80,6 @@ public class MediaController {
 
         return "{jsonrpc = \"2.0\",id = id,filePath = \"/Upload/\" + fileFullName}";
     }
-
 
 
 }

@@ -5,7 +5,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
-import java.applet.AppletContext;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,7 +15,11 @@ import java.util.zip.ZipOutputStream;
 
 
 public class SaveFile {
-    private static final File uploadDirectory = new File(getRealPath());
+    private static final File uploadDirectory;
+
+    static {
+        uploadDirectory=new File(getRealPath());
+    }
 
     /**
      * @param savePath
@@ -84,9 +87,10 @@ public class SaveFile {
     public static String getRealPath() {
         String realPath;
         String path = ApplicationContext.class.getResource("/").getFile();
-        int index = path.indexOf("build");
-        realPath = path.substring(0, index) + "/upload/";
-        realPath = realPath.replaceFirst("/", "");
+//        System.out.println(path);
+//        int index = path.indexOf("build");
+//        realPath = path.substring(0, index) + "/upload/";
+        realPath = path.replaceFirst("/", "");
         System.out.println("file path:"+realPath);
         return realPath;
     }

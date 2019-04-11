@@ -4,6 +4,7 @@ package com.quark.common.entity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,25 +13,27 @@ import java.util.Date;
 
 @Entity
 @Table(name = "upload_file")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class File {
 	@Id
 	private String fileName;
-	private String MD5;
+	@Column
+	private String md5;
+	@Column
 	private Date uploadDate;
 
 	@Override
 	public String toString() {
 		return "File{" +
 				"fileName='" + fileName + '\'' +
-				", MD5='" + MD5 + '\'' +
+				", MD5='" + md5 + '\'' +
 				", uploadDate=" + uploadDate +
 				'}';
 	}
 
 	public File(String fileName, String MD5, Date uploadDate) {
 		this.fileName = fileName;
-		this.MD5 = MD5;
+		this.md5 = MD5;
 		this.uploadDate = uploadDate;
 	}
 
@@ -45,12 +48,12 @@ public class File {
 		this.fileName = fileName;
 	}
 
-	public String getMD5() {
-		return MD5;
+	public String getMd5() {
+		return md5;
 	}
 
-	public void setMD5(String MD5) {
-		this.MD5 = MD5;
+	public void setMd5(String md5) {
+		this.md5 = md5;
 	}
 
 	public Date getUploadDate() {
