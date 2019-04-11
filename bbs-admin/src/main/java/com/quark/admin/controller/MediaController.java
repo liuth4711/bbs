@@ -3,12 +3,16 @@ package com.quark.admin.controller;
 import com.quark.admin.service.FileService;
 import com.quark.admin.utils.IsAllUploaded;
 import com.quark.admin.utils.SaveFile;
+import com.quark.common.dto.QuarkResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 
 @RestController
 @RequestMapping("/media")
@@ -50,11 +54,13 @@ public class MediaController {
      */
     @ResponseBody
     @RequestMapping(value = "/BigFileUp")
-    public String fileUpload(String guid, String md5value,String chunks, String chunk,String id, String name, String type, String lastModifiedDate, int size, MultipartFile file) {
+    public QuarkResult fileUpload(String guid, String md5value, String chunks, String chunk, String id, String name, String type, String lastModifiedDate, int size, MultipartFile file) {
         String fileName;
         try {
             int index;
-            String uploadFolderPath = SaveFile.getRealPath();
+            File path = new File(ResourceUtils.getURL("classpath:").getPath());
+
+            String uploadFolderPath =path.getPath()+"/media/";
 
             String mergePath = uploadFolderPath + guid + "/";
             String ext = name.substring(name.lastIndexOf("."));
@@ -73,12 +79,13 @@ public class MediaController {
                 SaveFile.saveFile(uploadFolderPath, fileName, file);
             }
 
+
         } catch (Exception ex) {
             ex.printStackTrace();
-            return "{\"error\":true}";
+            return QuarkResult.error("上传失败！");
         }
 
-        return "{jsonrpc = \"2.0\",id = id,filePath = \"/Upload/\" + fileFullName}";
+        return  QuarkResult.ok(fileName);
     }
 
 

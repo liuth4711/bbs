@@ -12,9 +12,10 @@
 <div id="content">
 
     <div class="container" style="margin-top: 20px">
-        <div class="alert alert-info">可以一次上传多个大文件</div>
+        <!--<div class="alert alert-info">可以一次上传多个大文件</div>-->
 
         <div class="container" style="margin-top: 50px">
+            文件名:  <input id="filePath" type="text" readonly="readonly"/>
             <div id="uploader" class="container">
                 <div class="container">
                     <div id="fileList" class="uploader-list"></div> <!--存放文件的容器-->
@@ -87,10 +88,12 @@
 
         // 当有文件被添加进队列的时候
         uploader.on('fileQueued', function (file) {
+            $list.html("");
             $list.append('<div id="' + file.id + '" class="item">' +
                 '<h4 class="info">' + file.name + '<button type="button" fileId="' + file.id + '" class="btn btn-danger btn-delete"><span class="glyphicon glyphicon-trash"></span></button></h4>' +
                 '<p class="state">正在计算文件MD5...请等待计算完毕后再点击上传！</p>' +
                 '</div>');
+            $("#UploadBtn").fadeOut('slow')//上传完后删除"删除"按钮
             //删除要上传的文件
             //每次添加文件都给btn-delete绑定删除方法
             $(".btn-delete").click(function () {
@@ -125,6 +128,7 @@
                         },
                         success: function (result) {
                             console.log(result);
+                            $("#UploadBtn").fadeIn("slow");
                             if (result == "this file is exist") {
                                 console.log("服务器上已经有同样的文件了，开始秒传！");
 
@@ -160,11 +164,14 @@
             $percent.css('width', percentage * 100 + '%');
         });
 
-        uploader.on('uploadSuccess', function (file) {
+        uploader.on('uploadSuccess', function (file,response) {
+
             $('#' + file.id).find('p.state').text('已上传');
             $('#' + file.id).find(".progress").find(".progress-bar").attr("class", "progress-bar progress-bar-success");
             $('#' + file.id).find(".info").find('.btn').fadeOut('slow');//上传完后删除"删除"按钮
             $('#StopBtn').fadeOut('slow');
+
+            $("#filePath").val( response.data);
         });
 
         uploader.on('uploadError', function (file) {
@@ -191,13 +198,7 @@
 
         uploader.on('uploadComplete', function (file) {//上传完成后回调
             //$('#' + file.id).find('.progress').fadeOut();//上传完删除进度条
-            //$('#' + file.id + 'btn').fadeOut('slow')//上传完后删除"删除"按钮
-        });
-
-        uploader.on('uploadFinished', function () {
-            //上传完后的回调方法
-            //alert("所有文件上传完毕");
-            //提交表单
+            $('#' + file.id + 'btn').fadeOut('slow')//上传完后删除"删除"按钮
         });
 
         $("#UploadBtn").click(function () {
